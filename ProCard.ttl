@@ -1,0 +1,915 @@
+@prefix : <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17> .
+
+<http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Dean_approve
+:Dean_approve rdf:type owl:ObjectProperty ;
+              owl:inverseOf :approved_by_Dean ;
+              rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> ;
+              rdfs:range :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Dean_review
+:Dean_review rdf:type owl:ObjectProperty ;
+             owl:inverseOf :reviewed_by_Dean ;
+             rdf:type owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#adiministrator_authorize
+:adiministrator_authorize rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :authorized_by ;
+                          rdfs:domain :Procurement_Card_Administrator ;
+                          rdfs:range :Procard .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#approved_by_Dean
+:approved_by_Dean rdf:type owl:ObjectProperty ,
+                           owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#authorized_by
+:authorized_by rdf:type owl:ObjectProperty ,
+                        owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#be_submitted
+:be_submitted rdf:type owl:ObjectProperty ;
+              owl:inverseOf :submits ;
+              rdf:type owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#edit
+:edit rdf:type owl:ObjectProperty ;
+      owl:inverseOf :edited ;
+      rdf:type owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#edited
+:edited rdf:type owl:ObjectProperty ;
+        rdfs:domain :Transaction ;
+        rdfs:range :Editor .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#get_trained_from
+:get_trained_from rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :train ;
+                  rdfs:domain :CardHolder ;
+                  rdfs:range :Procurement_Card_Administrator .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasStatus
+:hasStatus rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#owned_by
+:owned_by rdf:type owl:ObjectProperty ;
+          owl:inverseOf :owns ;
+          rdf:type owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#owns
+:owns rdf:type owl:ObjectProperty ;
+      rdfs:domain :CardHolder ;
+      rdfs:range :Procard .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#president_review
+:president_review rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :reviewed_by_president ;
+                  rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA> ;
+                  rdfs:range :open_procurement_card_application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#produced_by
+:produced_by rdf:type owl:ObjectProperty ;
+             owl:inverseOf :produces ;
+             rdf:type owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#produces
+:produces rdf:type owl:ObjectProperty ;
+          rdfs:domain :Procard ;
+          rdfs:range :Transaction .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#reviewed_by_Dean
+:reviewed_by_Dean rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Application ;
+                  rdfs:range <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#reviewed_by_president
+:reviewed_by_president rdf:type owl:ObjectProperty ,
+                                owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#submits
+:submits rdf:type owl:ObjectProperty ;
+         rdfs:domain :Applicant ;
+         rdfs:range :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#train
+:train rdf:type owl:ObjectProperty ,
+                owl:InverseFunctionalProperty .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#verified_by
+:verified_by rdf:type owl:ObjectProperty ;
+             owl:inverseOf :verify ;
+             rdfs:domain :Transaction ;
+             rdfs:range :Reconciler .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#verify
+:verify rdf:type owl:ObjectProperty ,
+                 owl:InverseFunctionalProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#HASDNO
+:HASDNO rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Editor ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#HAS_Fname
+:HAS_Fname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Editor ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#HAS_Lname
+:HAS_Lname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Editor ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#HAS_Mname
+:HAS_Mname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Editor ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#HasDno
+:HasDno rdf:type owl:DatatypeProperty ;
+        rdfs:domain :CardHolder ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Has_Fname
+:Has_Fname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :CardHolder ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Has_Lname
+:Has_Lname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :CardHolder ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Has_Mname
+:Has_Mname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :CardHolder ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Has_departmentno
+:Has_departmentno rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Reconciler ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasDATE
+:hasDATE rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Transaction ;
+         rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasDNO
+:hasDNO rdf:type owl:DatatypeProperty ;
+        rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasDno
+:hasDno rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Application ;
+        rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasEmpid
+:hasEmpid rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasFNAME
+:hasFNAME rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA> ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasFNMAE
+:hasFNMAE rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Reconciler ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasLNAME
+:hasLNAME rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA> ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasLname
+:hasLname rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasMNAME
+:hasMNAME rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA> ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasMname
+:hasMname rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Address
+:has_Address rdf:type owl:DatatypeProperty ;
+             rdfs:domain :CardHolder ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Amount
+:has_Amount rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Transaction ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Applicationid
+:has_Applicationid rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Application ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_BDate
+:has_BDate rdf:type owl:DatatypeProperty ;
+           rdfs:domain :CardHolder ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_DNO
+:has_DNO rdf:type owl:DatatypeProperty ;
+         rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA> ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Dno
+:has_Dno rdf:type owl:DatatypeProperty ;
+         rdfs:domain :Applicant ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Dnumber
+:has_Dnumber rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Editor ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_EMPID
+:has_EMPID rdf:type owl:DatatypeProperty ;
+           rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA> ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_EMP_id
+:has_EMP_id rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Procurement_Card_Administrator ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Emp_type
+:has_Emp_type rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Applicant ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Expiredate
+:has_Expiredate rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Procard ;
+                rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_F_name
+:has_F_name rdf:type owl:DatatypeProperty ;
+            rdfs:domain :people ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Holderid
+:has_Holderid rdf:type owl:DatatypeProperty ;
+              rdfs:domain :CardHolder ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Holdername
+:has_Holdername rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Procard ;
+                rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_LNAME
+:has_LNAME rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Reconciler ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_L_name
+:has_L_name rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Procurement_Card_Administrator ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Lname
+:has_Lname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Applicant ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_MNAME
+:has_MNAME rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Reconciler ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_M_name
+:has_M_name rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Procurement_Card_Administrator ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Mname
+:has_Mname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Applicant ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Opendate
+:has_Opendate rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Procard ;
+              rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_SAP_PersonID
+:has_SAP_PersonID rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Applicant ;
+                  rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_SSN
+:has_SSN rdf:type owl:DatatypeProperty ;
+         rdfs:domain :CardHolder ;
+         rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Trans_id
+:has_Trans_id rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Transaction ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Type
+:has_Type rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Procard ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_approvement
+:has_approvement rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Transaction ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_cardid
+:has_cardid rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Procard ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_date
+:has_date rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Application ;
+          rdfs:range xsd:dateTime .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_fname
+:has_fname rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Applicant ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_holderid
+:has_holderid rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Procard ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_invoicetotal
+:has_invoicetotal rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Procard ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_location
+:has_location rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Transaction ;
+              rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_payment-total
+:has_payment-total rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :Procard ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_procard_type
+:has_procard_type rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Application ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_reconcilerid
+:has_reconcilerid rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Reconciler ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_status
+:has_status rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Application ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_transaction_document
+:has_transaction_document rdf:type owl:DatatypeProperty ;
+                          rdfs:domain :Transaction ;
+                          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_type
+:has_type rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Transaction ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#hasfname
+:hasfname rdf:type owl:DatatypeProperty ;
+          rdfs:domain <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> ;
+          rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Emp_id/std_id
+<http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Emp_id/std_id> rdf:type owl:DatatypeProperty ;
+                                                                                                 rdfs:domain :Applicant ;
+                                                                                                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_purpose/project/event_description
+<http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_purpose/project/event_description> rdf:type owl:DatatypeProperty ;
+                                                                                                                     rdfs:domain :Application ;
+                                                                                                                     rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Applicant
+:Applicant rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :submits ;
+                                 owl:someValuesFrom :Application
+                               ] ;
+           rdfs:subClassOf :people .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Application
+:Application rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#CardHolder
+:CardHolder rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :get_trained_from ;
+                                  owl:someValuesFrom :Procurement_Card_Administrator
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :owns ;
+                                  owl:someValuesFrom :Procard
+                                ] ;
+            rdfs:subClassOf :people .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Dean1
+:Dean1 rdf:type owl:Class ;
+       rdfs:subClassOf <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Decilining_Balance_procurement_card
+:Decilining_Balance_procurement_card rdf:type owl:Class ;
+                                     rdfs:subClassOf :Procard .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Declining_balance_procard_application
+:Declining_balance_procard_application rdf:type owl:Class ;
+                                       rdfs:subClassOf :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Editor
+:Editor rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :edit ;
+                              owl:someValuesFrom :Transaction
+                            ] ;
+        rdfs:subClassOf :people .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Effective_Date_Card
+:Effective_Date_Card rdf:type owl:Class ;
+                     rdfs:subClassOf :Decilining_Balance_procurement_card .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Effective_date_card_application
+:Effective_date_card_application rdf:type owl:Class ;
+                                 rdfs:subClassOf :Declining_balance_procard_application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Enhanced_procard_application
+:Enhanced_procard_application rdf:type owl:Class ;
+                              rdfs:subClassOf :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Enhanced_procurement_card
+:Enhanced_procurement_card rdf:type owl:Class ;
+                           rdfs:subClassOf :Procard .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Procard
+:Procard rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :owned_by ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass :CardHolder
+                             ] .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Procurement_Card_Administrator
+:Procurement_Card_Administrator rdf:type owl:Class ;
+                                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :train ;
+                                                      owl:someValuesFrom :CardHolder
+                                                    ] ;
+                                rdfs:subClassOf :people .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Reconciler
+:Reconciler rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :verify ;
+                                  owl:someValuesFrom :Transaction
+                                ] ;
+            rdfs:subClassOf :people .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Removing_card
+:Removing_card rdf:type owl:Class ;
+               rdfs:subClassOf :Decilining_Balance_procurement_card .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Status
+:Status rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Transaction
+:Transaction rdf:type owl:Class ;
+             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                   owl:onProperty :edited ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Editor
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :verified_by ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :Reconciler
+                                 ] .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#approved
+:approved rdf:type owl:Class ;
+          rdfs:subClassOf :Status .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#approved_application
+:approved_application rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasStatus ;
+                                                                   owl:someValuesFrom :approved
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :reviewed_by_Dean ;
+                                                                   owl:someValuesFrom <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative>
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#approved_transaction
+:approved_transaction rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :edited ;
+                                                                   owl:someValuesFrom :Editor
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasStatus ;
+                                                                   owl:someValuesFrom :approved
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf :Transaction .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#decline
+:decline rdf:type owl:Class ;
+         rdfs:subClassOf :Status .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#declined_application
+:declined_application rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasStatus ;
+                                                                   owl:someValuesFrom :decline
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :reviewed_by_Dean ;
+                                                                   owl:someValuesFrom <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative>
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#declined_transaction
+:declined_transaction rdf:type owl:Class ;
+                      owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :edited ;
+                                                                   owl:someValuesFrom :Editor
+                                                                 ]
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasStatus ;
+                                                                   owl:someValuesFrom :decline
+                                                                 ]
+                                                               ) ;
+                                            rdf:type owl:Class
+                                          ] ;
+                      rdfs:subClassOf :Transaction .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_application
+:has_application rdf:type owl:Class ;
+                 rdfs:subClassOf :Status .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#open_procurement_card
+:open_procurement_card rdf:type owl:Class ;
+                       rdfs:subClassOf :Procard .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#open_procurement_card_application
+:open_procurement_card_application rdf:type owl:Class ;
+                                   rdfs:subClassOf :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#people
+:people rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#revolving_card_application
+:revolving_card_application rdf:type owl:Class ;
+                            rdfs:subClassOf :Declining_balance_procard_application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#standard_procard_applicaiton
+:standard_procard_applicaiton rdf:type owl:Class ;
+                              rdfs:subClassOf :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#standard_procurement_card
+:standard_procurement_card rdf:type owl:Class ;
+                           rdfs:subClassOf :Procard .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#student_payment_card
+:student_payment_card rdf:type owl:Class ;
+                      rdfs:subClassOf :Procard .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#student_payment_procard_application
+:student_payment_procard_application rdf:type owl:Class ;
+                                     rdfs:subClassOf :Application .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative
+<http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Deans/Director/Administrative> rdf:type owl:Class ;
+                                                                                                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                                                                   owl:onProperty :Dean_review ;
+                                                                                                                                   owl:someValuesFrom :Application
+                                                                                                                                 ] ;
+                                                                                                             rdfs:subClassOf :people .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA
+<http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#President/provost/EVPHA/EVPFA> rdf:type owl:Class ;
+                                                                                                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                                                                                   owl:onProperty :president_review ;
+                                                                                                                                   owl:someValuesFrom :open_procurement_card_application
+                                                                                                                                 ] ;
+                                                                                                             rdfs:subClassOf :people .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Bo_Jia
+:Bo_Jia rdf:type owl:NamedIndividual ,
+                 :people ;
+        :submits :enhanced_procurement_card_application ;
+        :has_Dno "777"^^xsd:string ;
+        :has_Emp_type "teacher"^^xsd:string ;
+        :has_SAP_PersonID 201508303 ;
+        <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_Emp_id/std_id> "7893"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Dean1
+:Dean1 rdf:type owl:NamedIndividual ,
+                :people ;
+       :hasDNO "108"^^xsd:string ;
+       :hasEmpid "99443"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#Petter.J.Wang
+:Petter.J.Wang rdf:type owl:NamedIndividual ,
+                        :people ;
+               :get_trained_from :tianyu.j.gou ;
+               :owns :procard1 ;
+               :HasDno "112"^^xsd:string ;
+               :has_Address "seattle"^^xsd:string ;
+               :has_SSN "782300442"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#approved
+:approved rdf:type owl:NamedIndividual ,
+                   :approved .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#chuyi.k.wang
+:chuyi.k.wang rdf:type owl:NamedIndividual ,
+                       :people ;
+              :hasDNO "108"^^xsd:string ;
+              :hasEmpid "77558"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#decline
+:decline rdf:type owl:NamedIndividual ,
+                  :decline .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#enhanced_procurement_card_application
+:enhanced_procurement_card_application rdf:type owl:NamedIndividual ,
+                                                :Application ;
+                                       :hasStatus :approved ;
+                                       :reviewed_by_Dean :Dean1 ;
+                                       :hasDno "654"^^xsd:string ;
+                                       :has_Applicationid "3"^^xsd:string ;
+                                       :has_date "2020-11-10T18:00:09"^^xsd:dateTime ;
+                                       :has_procard_type "enhanced procard"^^xsd:string ;
+                                       :has_status "approved"^^xsd:string ;
+                                       <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_purpose/project/event_description> "buying machines"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#enshi.y.wang
+:enshi.y.wang rdf:type owl:NamedIndividual ,
+                       :people ;
+              :edit :transaction001 ,
+                    :transaction002 ;
+              :has_Dnumber "78456"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#jiang.r.guo
+:jiang.r.guo rdf:type owl:NamedIndividual ,
+                      :people ;
+             :verify :transaction001 ;
+             :Has_departmentno "109"^^xsd:string ;
+             :has_reconcilerid "64538"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#jiawei.f.deng
+:jiawei.f.deng rdf:type owl:NamedIndividual ,
+                        :people ;
+               :president_review :open_procurement_card_application ;
+               :has_DNO "309"^^xsd:string ;
+               :has_EMPID "78093"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#open_procurement_card_application
+:open_procurement_card_application rdf:type owl:NamedIndividual ,
+                                            :Application ;
+                                   :hasStatus :decline ;
+                                   :reviewed_by_Dean :chuyi.k.wang ;
+                                   :reviewed_by_president :jiawei.f.deng ;
+                                   :hasDno "324"^^xsd:string ;
+                                   :has_Applicationid "2"^^xsd:string ;
+                                   :has_date "2018-09-28T13:00:09"^^xsd:dateTime ;
+                                   :has_procard_type "open procard"^^xsd:string ;
+                                   :has_status "declined"^^xsd:string ;
+                                   <http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#has_purpose/project/event_description> "purchasing machine"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#procard001
+:procard001 rdf:type owl:NamedIndividual ,
+                     :Procard ;
+            :has_Expiredate "2025-08-28T14:00:09"^^xsd:dateTime ;
+            :has_Opendate "2020-09-08T15:00:09"^^xsd:dateTime ;
+            :has_Type "open procard"^^xsd:string ;
+            :has_invoicetotal "7800"^^xsd:string ;
+            :has_payment-total "4000"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#procard1
+:procard1 rdf:type owl:NamedIndividual ,
+                   :Procard ;
+          :has_Expiredate "2025-09-08T07:00:09"^^xsd:dateTime ;
+          :has_Opendate "2020-09-07T08:00:08"^^xsd:dateTime ;
+          :has_Type "open procard"^^xsd:string ;
+          :has_invoicetotal "3500"^^xsd:string ;
+          :has_payment-total "888"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#tianyu.j.gou
+:tianyu.j.gou rdf:type owl:NamedIndividual ,
+                       :people ;
+              :train :Petter.J.Wang ;
+              :has_EMP_id "23456"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#transaction001
+:transaction001 rdf:type owl:NamedIndividual ,
+                         :Transaction ;
+                :edited :enshi.y.wang ;
+                :hasStatus :approved ;
+                :hasDATE "2019-09-08T14:00:09"^^xsd:dateTime ;
+                :has_Amount "600"^^xsd:string ;
+                :has_Trans_id "654"^^xsd:string ;
+                :has_location "LA"^^xsd:string ;
+                :has_transaction_document "buying drug"^^xsd:string ;
+                :has_type "C"^^xsd:string .
+
+
+###  http://www.semanticweb.org/weijiewen/ontologies/2020/10/untitled-ontology-17#transaction002
+:transaction002 rdf:type owl:NamedIndividual ,
+                         :Transaction ;
+                :edited :enshi.y.wang ;
+                :hasStatus :decline ;
+                :hasDATE "2019-08-07T16:00:09"^^xsd:dateTime ;
+                :has_Amount "650"^^xsd:string ;
+                :has_Trans_id "789"^^xsd:string ;
+                :has_location "NYC"^^xsd:string ;
+                :has_transaction_document "buying machine"^^xsd:string ;
+                :has_type "B"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

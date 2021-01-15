@@ -1,0 +1,92 @@
+% Milestone3 
+% Professor Halil Kilicoglu
+% Group Member: Bo Jia, Jiewen Wei, Chuyi Wang, Wei Jing, Yueran Zeng
+
+procard(67983401, 67235, 2000, 678, 'Tom.H.Li', '2028-10-02', '2018-10-02', 'open_procard').
+procard(56092310, 67863, 3500, 888, 'lebron.K.james', '2030-05-13', '2020-05-13', 'open_procard').
+procard(56093467, 67872, 4000, 980, 'Peter.J.Wang', '2027-07-28', '2017-07-28', 'open_procard').
+procard(92304561, 78345, 6000, 5600, 'joseph.Y.Tom', '2029-11-08', '2019-11-08', 'Effective_date_procard').
+procard(44880752, 78934, 7800, 4000, 'bo.y.jia', '2025-09-15', '2015-09-15', 'student_payment_procard').
+procard(77995609, 98235, 7000, 4500, 'jing.w.wei', '2029-09-25', '2019-09-25', 'revolving_procard').
+
+transaction(0926, 67983401, 'LA', 'A', '2020-09-08', 230, 'buying machine', 98347, 'Y').
+transaction(1010, 92304561, 'SF', 'A', '2019-03-26', 150, 'buying machine', 78456, 'Y').
+transaction(0728, 77995609, 'NY', 'B', '2018-11-07', 760, 'buying fruit', 78945, 'Y').
+transaction(0654, 44880752, 'NC', 'C', '2016-07-18', 600, 'buying drug', 78456, 'N').
+
+cardholder(98235, 'Jing', 'w', 'Wei', '2000-07-23', 789834092, 'Irvine', 666).
+cardholder(67235, 'Tom', 'H', 'Li', '1940-09-03', 782300442, 'seattle',324).
+cardholder(78345, 'Joseph ', 'Y', 'Tom', '2001-06-05', 345678921, 'Tianjin',244).
+cardholder(67863, 'Lebron', 'K', 'james', '1998-09-04', 456372892, 'Tianjin',112).
+cardholder(78934, 'Bo', 'y', 'Jia', '1999-08-27',983454609, 'woodland hill', 777).
+
+
+editor(09834, 'shihao', 'l', 'jin', 206).
+editor(78945, 'kuang', 'r', 'li', 206).
+editor(78456, 'enshi', 'y', 'wang',206).
+
+reconciler(98357, 109, 'hao', 'd', 'jia').
+reconciler(88332, 109, 'lin', 'f', 'li').
+reconciler(64538, 109, 'jiang', 'r', 'guo').
+
+application(001, 'open_procard', '2018-09-23', 112, 'approved', 'buying machines').
+application(002, 'open_procard', '2017-06-28', 324, 'approved', 'purchasing pens').
+application(003, 'enhanced_procard', '2020-10-10', 654, 'awaiting', 'buying machine').
+application(004, 'Effective date procard', '2019-10-03', 244, 'approved', 'buying machine').
+application(005, 'standard procard', '2016-08-23', 788, 'awaiting ', 'purchasing personal stuff').
+application(006, 'student_payment_card', '2015-08-30', 777, 'approved', 'purchasing machine').
+application(007, 'revolving_procard', '2019-08-23', 666, 'approved', 'buying medcine ').
+
+applicants(201508303,7893,'Bo','y','Jia','teacher',777).
+applicants(201608232,6788,'Dawang','st','Wei','student',788).
+applicants(201706281,7823,'TOM','H','Li','teacher',324).
+applicants(201809231,9988,'Peter','J','Wang','teacher',112).
+applicants(201908234,7843,'Jing','w','wei','student',666).
+applicants(201910031,6655,'Joseph','Y','Tom','teacher',244).
+applicants(202010101,7844,'Steven','R','Green','student',654).
+
+procurement_card_administrator(23456, 'tianyu', 'j', 'gou').
+procurement_card_administrator(34568, 'houshuo', 'h', 'huang').
+procurement_card_administrator(98456, 'yunjia', 'k', 'zhang').
+procurement_card_administrator(99033, 'zeyu', 'w', 'wang').
+
+president_provost(90876, 'zhengyang', 'k', 'xv', 309).
+president_provost(78093, 'jiawei', 'f', 'deng', 309).
+president_provost(89088, 'dezhou', 'k', 'chen', 309).
+
+
+% Rules
+% List the holder-ID, first and last name for people who has spent more than 1000 on invoice
+cardholder_info(X,Y,Z) :-
+	cardholder(X,Y,_,Z,_,_,_,_),
+	procard(_,X,_,P,_,_,_,_),P > 1000.
+
+
+% List the first and last name of applicants who is a teacher and whose applies to buy machines and was approved.
+result(X,Y):-
+	application(_,_,_,N,S,D),
+	applicants(_,_,X,_,Y,E,N),D='buying machine',S='approved',E='teacher'.
+
+% need comments here, 
+% ??????
+not_admin_president(E1,E2) :-
+ 	procurement_card_administrator(E1, _, _, _),
+ 	president_provost(E2, _, _, _, _),
+	E1 \= E2, E1 < E2.
+
+% List the holder name of people who has a transaction and the amount used must be less than the card payment limit, and was approved.
+transaction_under_invoce(X) :-
+  	transaction(_,C,_, _, _, P, _,_ , Z),
+  	procard(C,_,I,_,X,_,_,_),
+  	P=<I,
+  	Z='Y'.
+  	
+% chuyi ????? ????new constraints
+% List the first and last name of applicants whose application status is approved.
+isapproved(X,Y) :-
+	application(_,_,_,Z,P,_),
+	applicants(_,_,X,_,Y,_,Z),P='approved'.
+
+
+
+
